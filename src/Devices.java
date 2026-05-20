@@ -1,9 +1,9 @@
-public abstract class Cihazlar {
+public abstract class Devices {
 
     private String cihazAdi;
     private boolean acikMi;
 
-    Cihazlar(String cihazAdi){
+    public Devices(String cihazAdi){
         this.cihazAdi=cihazAdi;
         this.acikMi=false;
 
