@@ -19,7 +19,6 @@ public class House {
 
         }
     }
-
     public Devices cihazBul(String cihazAdi) {
 
         for (Devices a : cihazlar) {
@@ -31,7 +30,6 @@ public class House {
         System.out.println("Cihaz bulunamadı");
         return null;
     }
-
 }
 
 
