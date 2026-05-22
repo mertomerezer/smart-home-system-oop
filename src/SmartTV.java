@@ -1,49 +1,49 @@
-public class SmartTV extends Devices{
-    private int sesSeviyesi = 10;
-    private int kanalNo = 1;
+public class SmartTV extends Devices {
 
-    public SmartTV(String cihazAdi){
-        super(cihazAdi);
+    private int volumeLevel = 10;
+    private int channelNo = 1;
 
+    public SmartTV(String deviceName) {
+        super(deviceName);
     }
 
-    public void kanalDegistir(int yeniKanal){
-        if(yeniKanal<=10&&yeniKanal>=1){
-            kanalNo = yeniKanal;
-            System.out.println("Kanal Değiştirildi");
-            System.out.println("Kanal: "+kanalNo);
-        }else{
-            System.out.println("1-10 Arasında bir kanal seçiniz");
+    public void changeChannel(int newChannel) {
+        if (newChannel <= 10 && newChannel >= 1) {
+            channelNo = newChannel;
+            System.out.println("Channel changed.");
+            System.out.println("Channel: " + channelNo);
+        } else {
+            System.out.println("Please select a channel between 1 and 10.");
         }
     }
 
-    public void sesArttir(){
-        if(sesSeviyesi<100){
-            sesSeviyesi++;
-            System.out.println("Yeni ses: "+sesSeviyesi);
-        }else System.out.println("Ses Maksimum Seviyede");
+    public void increaseVolume() {
+        if (volumeLevel < 100) {
+            volumeLevel++;
+            System.out.println("New volume: " + volumeLevel);
+        } else {
+            System.out.println("Volume is at maximum level.");
+        }
     }
 
-    public void sesAzalt(){
-        if(sesSeviyesi>0){
-            sesSeviyesi--;
-            System.out.println("Yeni ses: "+sesSeviyesi);
-        }else System.out.println("Ses Minimum Seviyede");
+    public void decreaseVolume() {
+        if (volumeLevel > 0) {
+            volumeLevel--;
+            System.out.println("New volume: " + volumeLevel);
+        } else {
+            System.out.println("Volume is at minimum level.");
+        }
     }
 
     @Override
-    public void durumGoster(){
-
-        System.out.println(getCihazAdi());
-        if(isacikMi()){
-            System.out.println("Akıllı Televizyon Açık");
-            System.out.println("Mevcut kanal: "+kanalNo);
-            System.out.println("Ses Seviyesi: "+sesSeviyesi);
-        }else{
-            System.out.println("Akıllı Televizyon Kapalı");
+    public void showStatus() {
+        System.out.println(getDeviceName());
+        if (isOn()) {
+            System.out.println("Smart TV is ON.");
+            System.out.println("Current Channel: " + channelNo);
+            System.out.println("Volume Level: " + volumeLevel);
+        } else {
+            System.out.println("Smart TV is OFF.");
         }
     }
-
-    }
-
-
+}

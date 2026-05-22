@@ -8,10 +8,10 @@ public class Main {
 
         while (true) {
 
-            System.out.println("\n1- Cihaz Ekle");
-            System.out.println("2- Cihazları Listele");
-            System.out.println("3- Cihaz Bul");
-            System.out.println("4- Çıkış");
+            System.out.println("\n1- Add Device");
+            System.out.println("2- List Devices");
+            System.out.println("3- Find Device");
+            System.out.println("4- Exit");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -20,7 +20,7 @@ public class Main {
 
                 case 1:
 
-                    System.out.println("Cihaz tipi seçiniz:");
+                    System.out.println("Select device type:");
                     System.out.println("1 - SmartTV");
                     System.out.println("2 - SmartLight");
                     System.out.println("3 - AirConditioner");
@@ -29,88 +29,88 @@ public class Main {
                     int type = scanner.nextInt();
                     scanner.nextLine();
 
-                    System.out.println("Cihazın adını belirleyin:");
+                    System.out.println("Enter a name for the device:");
                     String name = scanner.nextLine();
 
-                    Devices cihaz = null;
+                    Devices device = null;
 
                     switch (type) {
 
                         case 1:
-                            cihaz = new SmartTV(name);
+                            device = new SmartTV(name);
                             break;
 
                         case 2:
-                            cihaz = new Smartlight(name);
+                            device = new Smartlight(name);
                             break;
 
                         case 3:
-                            cihaz = new AirConditioner(name);
+                            device = new AirConditioner(name);
                             break;
 
                         case 4:
-                            cihaz = new DoorLock(name);
+                            device = new DoorLock(name);
                             break;
 
                         default:
-                            System.out.println("Geçersiz cihaz tipi");
+                            System.out.println("Invalid device type");
                             break;
                     }
 
-                    if (cihaz != null) {
-                        h1.cihazEkle(cihaz);
+                    if (device != null) {
+                        h1.addDevice(device);
                     }
 
                     break;
 
                 case 2:
-                    h1.tumCihazlariGoster();
+                    h1.showAllDevices();
                     break;
 
                 case 3:
 
-                    System.out.println("Bir cihaz ismi girin:");
+                    System.out.println("Enter a device name:");
                     String find = scanner.nextLine();
 
-                    Devices cihaz2 = h1.cihazBul(find);
+                    Devices device2 = h1.findDevice(find);
 
-                    if (cihaz2 != null) {
+                    if (device2 != null) {
 
-                        System.out.println("1 - Aç");
-                        System.out.println("2 - Kapat");
-                        System.out.println("3 - Durum Göster");
+                        System.out.println("1 - Turn On");
+                        System.out.println("2 - Turn Off");
+                        System.out.println("3 - Show Status");
 
-                        int secim = scanner.nextInt();
+                        int selection = scanner.nextInt();
                         scanner.nextLine();
 
-                        switch (secim) {
+                        switch (selection) {
 
                             case 1:
-                                cihaz2.ac();
+                                device2.turnOn();
                                 break;
 
                             case 2:
-                                cihaz2.kapa();
+                                device2.turnOff();
                                 break;
 
                             case 3:
-                                cihaz2.durumGoster();
+                                device2.showStatus();
                                 break;
 
                             default:
-                                System.out.println("Geçersiz seçim");
+                                System.out.println("Invalid selection");
                         }
 
                     }
                     break;
 
                 case 4:
-                    System.out.println("Çıkış yapılıyor...");
+                    System.out.println("Exiting...");
                     scanner.close();
                     return;
 
                 default:
-                    System.out.println("Geçersiz seçim");
+                    System.out.println("Invalid selection");
             }
         }
     }

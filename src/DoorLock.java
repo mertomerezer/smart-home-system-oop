@@ -1,34 +1,38 @@
-public class DoorLock extends Devices{
-    private boolean kilitliMi;
-    public DoorLock(String cihazAdi){
-        super(cihazAdi);
-        this.kilitliMi=false;
+public class DoorLock extends Devices {
+
+    private boolean isLocked;
+
+    public DoorLock(String deviceName) {
+        super(deviceName);
+        this.isLocked = false;
     }
 
-    public void kilitle(){
-        if(kilitliMi==false){
-            kilitliMi=true;
-            System.out.println("Kapı Kilitlendi");
-        }else System.out.println("Kapı zaten kilitli");
+    public void lock() {
+        if (isLocked == false) {
+            isLocked = true;
+            System.out.println("Door locked.");
+        } else {
+            System.out.println("Door is already locked.");
+        }
     }
 
-    public void kilidiAc(){
-        if(kilitliMi==true){
-            kilitliMi=false;
-            System.out.println("Kapı Kiliti Açıldı");
-        }else System.out.println("Kapının Kilidi Zaten Açık");
+    public void unlock() {
+        if (isLocked == true) {
+            isLocked = false;
+            System.out.println("Door unlocked.");
+        } else {
+            System.out.println("Door is already unlocked.");
+        }
     }
 
     @Override
-    public void durumGoster() {
-        System.out.println(getCihazAdi());
-        if (isacikMi()) {
-            System.out.println("Kapı açık");
+    public void showStatus() {
+        System.out.println(getDeviceName());
+        if (isOn()) {
+            System.out.println("Door is open.");
         } else {
-            System.out.println("Kapı kapalı");
+            System.out.println("Door is closed.");
         }
-
-        System.out.println("Kilit durumu: " + kilitliMi);
+        System.out.println("Lock status: " + isLocked);
     }
-
 }

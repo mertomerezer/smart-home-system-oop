@@ -1,32 +1,37 @@
-public class Smartlight extends Devices{
-    private int parlaklik = 50;
-    public Smartlight(String cihazAdi){
-        super(cihazAdi);
+public class Smartlight extends Devices {
+
+    private int brightness = 50;
+
+    public Smartlight(String deviceName) {
+        super(deviceName);
     }
-    public void parlaklikArttir(){
-        if(parlaklik==100){
-            System.out.println("Maksimum parlaklık");
-        }else{
-            parlaklik +=10;
-            System.out.println("Parlaklık arttırıldı");
+
+    public void increaseBrightness() {
+        if (brightness == 100) {
+            System.out.println("Maximum brightness reached.");
+        } else {
+            brightness += 10;
+            System.out.println("Brightness increased.");
         }
     }
-    public void parlaklikAzalt(){
-        if(parlaklik==0){
-            System.out.println("Minimum parlaklık");
-        }else{
-            parlaklik -=10;
-            System.out.println("Parlaklık azaltıldı");
+
+    public void decreaseBrightness() {
+        if (brightness == 0) {
+            System.out.println("Minimum brightness reached.");
+        } else {
+            brightness -= 10;
+            System.out.println("Brightness decreased.");
         }
     }
+
     @Override
-    public void durumGoster(){
-        System.out.println(getCihazAdi());
-        if(isacikMi()){
-            System.out.println("Akıllı Lamba Açık");
-            System.out.println("Mevcut Parlaklık: "+parlaklik);
-        }else{
-            System.out.println("Akıllı Lamba Kapalı");
+    public void showStatus() {
+        System.out.println(getDeviceName());
+        if (isOn()) {
+            System.out.println("Smart Light is ON.");
+            System.out.println("Current Brightness: " + brightness);
+        } else {
+            System.out.println("Smart Light is OFF.");
         }
     }
 }

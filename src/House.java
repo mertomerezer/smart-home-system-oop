@@ -1,44 +1,34 @@
 import java.util.ArrayList;
 
 public class House {
-    private ArrayList<Devices> cihazlar;
+
+    private ArrayList<Devices> devices;
 
     public House() {
-        cihazlar = new ArrayList<>();
+        devices = new ArrayList<>();
     }
 
-    public void cihazEkle(Devices cihaz) {
-        cihazlar.add(cihaz);
-        System.out.println(cihaz.getCihazAdi() + " Eklendi");
-
+    public void addDevice(Devices device) {
+        devices.add(device);
+        System.out.println(device.getDeviceName() + " added.");
     }
 
-    public void tumCihazlariGoster() {
-        if(cihazlar.isEmpty()){
-            System.out.println("Görüntülenecek cihaz yok");
+    public void showAllDevices() {
+        if (devices.isEmpty()) {
+            System.out.println("No devices to display.");
         }
-        for (Devices i : cihazlar) {
-
-            i.durumGoster();
-
+        for (Devices d : devices) {
+            d.showStatus();
         }
     }
-    public Devices cihazBul(String cihazAdi) {
 
-        for (Devices a : cihazlar) {
-            if (a.getCihazAdi().equalsIgnoreCase(cihazAdi)) {
-                return a;
+    public Devices findDevice(String deviceName) {
+        for (Devices d : devices) {
+            if (d.getDeviceName().equalsIgnoreCase(deviceName)) {
+                return d;
             }
         }
-
-        System.out.println("Cihaz bulunamadı");
+        System.out.println("Device not found.");
         return null;
     }
 }
-
-
-
-
-
-
-

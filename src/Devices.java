@@ -1,41 +1,38 @@
 public abstract class Devices {
 
-    private String cihazAdi;
-    private boolean acikMi;
+    private String deviceName;
+    private boolean isOn;
 
-    public Devices(String cihazAdi){
-        this.cihazAdi=cihazAdi;
-        this.acikMi=false;
-
+    public Devices(String deviceName) {
+        this.deviceName = deviceName;
+        this.isOn = false;
     }
-    public void ac(){
-    if(acikMi == false){
-        acikMi= true;
-        System.out.println(cihazAdi+" Açıldı");
-    }else{
-        System.out.println("Zaten açık");
+
+    public void turnOn() {
+        if (isOn == false) {
+            isOn = true;
+            System.out.println(deviceName + " turned on.");
+        } else {
+            System.out.println("Already on.");
         }
     }
 
-    public void kapa(){
-        if(acikMi==true){
-            acikMi=false;
-            System.out.println(cihazAdi+" Kapandı");
-        }else{
-            System.out.println("Zaten Kapalı");
+    public void turnOff() {
+        if (isOn == true) {
+            isOn = false;
+            System.out.println(deviceName + " turned off.");
+        } else {
+            System.out.println("Already off.");
         }
-
     }
 
-    public boolean isacikMi(){
-        return acikMi;
-
+    public boolean isOn() {
+        return isOn;
     }
 
-    public String getCihazAdi(){
-
-        return cihazAdi;
+    public String getDeviceName() {
+        return deviceName;
     }
 
-    abstract void durumGoster();
+    abstract void showStatus();
 }

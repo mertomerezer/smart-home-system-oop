@@ -1,50 +1,49 @@
-public class AirConditioner extends Devices{
-    private int sicaklik = 22;
+public class AirConditioner extends Devices {
 
-    public AirConditioner(String cihazAdi){
-        super(cihazAdi);
+    private int temperature = 22;
+
+    public AirConditioner(String deviceName) {
+        super(deviceName);
     }
 
-    public void sicaklikArttir(){
-        if(sicaklik<30){
-            sicaklik+=1;
-            System.out.println("Sıcaklık arttırıldı");
-            System.out.println("Mevcut Sıcaklık: "+sicaklik);
-
-        }else System.out.println("Sıcaklık maksimum seviyede");
-    }
-
-    public void sicaklikAzalt(){
-        if(sicaklik>16) {
-            sicaklik-=1;
-            System.out.println("Sıcaklık azaltıldı");
-            System.out.println("Mevcut Sıcaklık: "+sicaklik);
+    public void increaseTemperature() {
+        if (temperature < 30) {
+            temperature += 1;
+            System.out.println("Temperature increased.");
+            System.out.println("Current Temperature: " + temperature);
+        } else {
+            System.out.println("Temperature is at maximum level.");
         }
-        else System.out.println("Sıcaklık minimum seviyede");
     }
 
-    public void sicaklikAyarla(int derece){
-        if(derece>=16 && derece<=30){
-            sicaklik = derece;
-            System.out.println("Sıcaklık istediğiniz dereceye ayarlandı");
-            System.out.println("Yeni Sıcaklık: "+sicaklik);
-        }else System.out.println("Sıcaklık 16 ile 30 arasında olmalı");
+    public void decreaseTemperature() {
+        if (temperature > 16) {
+            temperature -= 1;
+            System.out.println("Temperature decreased.");
+            System.out.println("Current Temperature: " + temperature);
+        } else {
+            System.out.println("Temperature is at minimum level.");
+        }
+    }
+
+    public void setTemperature(int degree) {
+        if (degree >= 16 && degree <= 30) {
+            temperature = degree;
+            System.out.println("Temperature set to desired degree.");
+            System.out.println("New Temperature: " + temperature);
+        } else {
+            System.out.println("Temperature must be between 16 and 30.");
+        }
     }
 
     @Override
-    public void durumGoster(){
-        System.out.println(getCihazAdi());
-        if(isacikMi()){
-            System.out.println("Klima Açık");
-            System.out.println("Mevcut sıcaklık: "+sicaklik);
-        }else{
-            System.out.println("Klima Kapalı");
+    public void showStatus() {
+        System.out.println(getDeviceName());
+        if (isOn()) {
+            System.out.println("Air Conditioner is ON.");
+            System.out.println("Current Temperature: " + temperature);
+        } else {
+            System.out.println("Air Conditioner is OFF.");
         }
     }
 }
-
-
-
-
-
-
