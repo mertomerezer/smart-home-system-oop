@@ -14,7 +14,11 @@ public class House {
     }
 
     public void tumCihazlariGoster() {
+        if(cihazlar.isEmpty()){
+            System.out.println("Görüntülenecek cihaz yok");
+        }
         for (Devices i : cihazlar) {
+
             i.durumGoster();
 
         }
